@@ -19,7 +19,7 @@ class Participant extends Model
     {
         return $this->hasOne(ticket::class);
     }
-    // *________* plusieur classe assotation 
+    // *________* plusieur classe assotation
     public function publications()
     {
         return $this->belongsToMany(Publication::class);
@@ -27,5 +27,9 @@ class Participant extends Model
     public function evenements()
     {
         return $this->belongsToMany(Evenement::class);
+    }
+    public function notePubs()
+    {
+        return $this->belongsToMany(NotePub::class);
     }
 }

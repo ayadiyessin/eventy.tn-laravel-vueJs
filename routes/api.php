@@ -30,6 +30,7 @@ use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AvisPubController;
 use App\Http\Controllers\AvisEvenController;
+use App\Http\Controllers\NotePubController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -110,8 +111,15 @@ Route::get('listeComParEven/{eventID}', [AvisEvenController::class, 'listeCommen
 Route::post('AjoutComEven/{partId}/{eventID}', [AvisEvenController::class, 'store']);// Store route
 Route::put('updateComEven/{id}', [AvisEvenController::class, 'update']);// Update route
 Route::delete('delateComEven/{id}', [AvisEvenController::class, 'destroy']);// Destroy route
-//login
 
+//NotePub => note => pour publication
+Route::get('notePub/{partId}/{publId}', [NotePubController::class, 'index']);// Index route
+Route::get('moyenNote/{publId}', [NotePubController::class, 'Moyenenotes']);// liste comentaire
+Route::post('AjoutNotepub/{partId}/{publId}', [NotePubController::class, 'store']);// Store route
+Route::put('updateNotepub/{id}', [NotePubController::class, 'update']);// Update route
+Route::delete('delateNotepub/{id}', [NotePubController::class, 'destroy']);// Destroy route
+
+//login
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class,

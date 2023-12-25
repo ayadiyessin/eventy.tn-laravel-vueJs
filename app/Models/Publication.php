@@ -23,4 +23,8 @@ class Publication extends Model
     {
         return $this->belongsToMany(Participant::class);
     }
+    public function notePubs()
+    {
+        return $this->belongsToMany(NotePub::class);
+    }
 }
