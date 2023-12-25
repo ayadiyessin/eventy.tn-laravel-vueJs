@@ -34,6 +34,8 @@ use App\Http\Controllers\NotePubController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+
+use App\Http\Controllers\PaymentController;
 // Participants
 Route::middleware('api')->group(function () {
     Route::resource('Participants', ParticipantController::class);
@@ -127,3 +129,8 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class,
 'logout']);
 
+//payement
+
+Route::middleware('api')->group(function($router) {
+    Route::post('/createpayment', [PaymentController::class,'createPaymentIntent']);
+});
