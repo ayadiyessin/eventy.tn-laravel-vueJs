@@ -12,7 +12,7 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        $publications = Publication::with(['restauration'])->get(); // methode eli fi wost el restoration
+        $publications = Publication::with(['restauration'])->where('archive_pub', 0)->get(); // methode eli fi wost el restoration
         return $publications;
     }
 
@@ -63,25 +63,31 @@ class PublicationController extends Controller
         return response()->json($publication);
     }
 
-    public function archiver(Request $request, $id)
+    public function archiver($id)
     {
         $publication = Publication::find($id);
-        if ($request->has('archive_pub')) {
-            $publication->archive_pub = 1;
-        }
+        // if ($request->has('archive_pub')) {
+        //     $publication->archive_pub = 1;
+        // }
+        $publication->update([
+            'archive_pub' => 1,
+        ]);
+
         $publication->save();
 
         return response()->json($publication, 200);
     }
-    public function desarchiver(Request $request, $id)
+    public function desarchiver($id)
     {
         $publication = Publication::find($id);
-        if ($request->has('archive_pub')) {
-            $publication->archive_pub = 0;
-        }
+        $publication->update([
+            'archive_pub' => 0,
+        ]);
+
         $publication->save();
 
         return response()->json($publication, 200);
     }
+    
 
 }

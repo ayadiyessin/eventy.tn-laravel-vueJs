@@ -89,6 +89,8 @@ Route::middleware('api')->group(function () {
     Route::resource('Publication', PublicationController::class);
 });
 Route::get('/pub/{resID}',[PublicationController::class,'showPublicationByRes']);
+Route::put('desarchiver/{id}', [PublicationController::class, 'desarchiver']);// Update route
+Route::put('archiver/{id}', [PublicationController::class, 'archiver']);// Update route
 
 // photo
 Route::middleware('api')->group(function () {
