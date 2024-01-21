@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('archive_pub')->default(0);
             $table->string('dersc_pub',500);
+            $table->string('photo_pub',500);
             $table->unsignedBigInteger('restaurationID');
             $table->foreign('restaurationID')
             ->references('id')

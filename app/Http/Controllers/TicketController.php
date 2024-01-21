@@ -68,4 +68,12 @@ class TicketController extends Controller
         $ticket= Ticket::where('evenementsID', $evetID)->with('evenement')->get();
         return response()->json($ticket);
     }
+    public function showtickbypartEvent($partId, $eventID)
+    {
+        $ticket = Ticket::where('participantsID', $partId)->where('evenementsID', $eventID)->get();//->pluck('commentaire_pub')
+        if ($ticket->isEmpty()) {
+            return 0; // traj3elna 0 ken mouch 3amel note 
+        }
+        return $ticket;
+    }
 }

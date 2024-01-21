@@ -9,15 +9,11 @@ class Publication extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'archive_pub','restaurationID','dersc_pub',
+        'archive_pub','restaurationID','dersc_pub','photo_pub',
     ];
     public function restauration()
     {
     return $this->belongsTo(Restauration::class,"restaurationID");
-    }
-    public function photos()
-    {
-    return $this->hasMany(Photo::class ,"publicationsID");
     }
     public function participants() // plusieur plusier
     {
@@ -27,4 +23,5 @@ class Publication extends Model
     {
         return $this->belongsToMany(NotePub::class);
     }
+    
 }

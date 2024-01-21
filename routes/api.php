@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\TelephoneController;
 use App\Http\Controllers\OrganisateurController;
@@ -27,7 +27,6 @@ use App\Http\Controllers\CategorieEventController;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\PublicationController;
-use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AvisPubController;
 use App\Http\Controllers\AvisEvenController;
 use App\Http\Controllers\NotePubController;
@@ -44,12 +43,12 @@ Route::get('/Partic/{iduser}',[ParticipantController::class,'showParticipantByUs
 
 //telephones
 Route::middleware('api')->group(function () {
-    Route::resource('Telephones', TelephoneController::class);
+    Route::resource('telephones', TelephoneController::class);
 });
 Route::get('/Tell/{iduser}',[TelephoneController::class,'showTelephoneByUser']);
 // organisateur
 Route::middleware('api')->group(function () {
-    Route::resource('Organisateur', OrganisateurController::class);
+    Route::resource('organisateurs', OrganisateurController::class);
 });
 Route::get('/Org/{iduser}',[OrganisateurController::class,'showOrganisateurByUser']);
 // restauration
@@ -70,6 +69,10 @@ Route::middleware('api')->group(function () {
     Route::resource('CategorieEvent', CategorieEventController::class);
 });
 
+//user
+Route::middleware('api')->group(function () {
+    Route::resource('users', UserController::class);
+});
 // evenement
 Route::middleware('api')->group(function () {
     Route::resource('Evenement', EvenementController::class);
@@ -85,6 +88,7 @@ Route::middleware('api')->group(function () {
 Route::get('/Tickevent/{eventID}',[TicketController::class,'showTicketByEvent']);
 
 Route::get('/tickpart/{partID}',[TicketController::class,'showTicketByPart']);
+Route::get('/tickpartevent/{partId}/{eventID}', [TicketController::class, 'showtickbypartEvent']);// Index route
 
 // publication
 Route::middleware('api')->group(function () {
@@ -94,13 +98,8 @@ Route::get('/pub/{resID}',[PublicationController::class,'showPublicationByRes'])
 Route::put('desarchiver/{id}', [PublicationController::class, 'desarchiver']);// Update route
 Route::put('archiver/{id}', [PublicationController::class, 'archiver']);// Update route
 
-// photo
-Route::middleware('api')->group(function () {
-    Route::resource('Photo', PhotoController::class);
-});
-Route::get('/photoevent/{eventID}',[PhotoController::class,'showPhotoByEvent']);
 
-Route::get('/photopub/{partID}',[PhotoController::class,'showPhotoByPub']);
+
 
 //avispub => commentaire => pour publication
 Route::get('listeCompub/{partId}/{publId}', [AvisPubController::class, 'index']);// Index route
@@ -122,15 +121,14 @@ Route::get('moyenNote/{publId}', [NotePubController::class, 'Moyenenotes']);// l
 Route::post('AjoutNotepub/{partId}/{publId}', [NotePubController::class, 'store']);// Store route
 Route::put('updateNotepub/{id}', [NotePubController::class, 'update']);// Update route
 Route::delete('delateNotepub/{id}', [NotePubController::class, 'destroy']);// Destroy route
+Route::get('Countnotes/{publId}', [NotePubController::class, 'Countnotes']);// liste comentaire
 
 //login
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
-Route::middleware('auth:sanctum')->post('/logout', [LoginController::class,
-'logout']);
+Route::middleware('auth:sanctum')->post('/logout', [LoginController::class,'logout']);
 
 //payement
-
 Route::middleware('api')->group(function($router) {
     Route::post('/createpayment', [PaymentController::class,'createPaymentIntent']);
 });

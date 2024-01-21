@@ -22,10 +22,19 @@ class NotePubController extends Controller
     public function Moyenenotes($publId)
     {
         $notes = NotePub::where('publicationsID', $publId)->get();//->pluck('note_pub')
+        if ($notes->isEmpty()) {
+            return 0; // traj3elna 0 ken mouch 3amel note 
+        }
         $averageNote= $notes->avg('note_pub');
-        return $averageNote;
+        $formattedAverage = number_format($averageNote, 2);
+        return $formattedAverage;
     }
 
+    public function Countnotes($pubId)
+    {
+        $countNote = NotePub::where('publicationsID', $pubId)->count();
+        return $countNote;
+    }
     /**
      * Store a newly created resource in storage.
      */

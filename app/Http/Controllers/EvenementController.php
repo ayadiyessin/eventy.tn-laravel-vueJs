@@ -29,9 +29,10 @@ class EvenementController extends Controller
             'date_Event' => $request->input('date_Event'),
             'prix_Event' => $request->input('prix_Event'),
             'adresse_Event' => $request->input('adresse_Event'),
+            'photo_Event' => $request->input('photo_Event'),
             ]);
             $evenement->save();
-            return response()->json($evenement,201);
+            return response()->json($evenement,200);
     }
 
     /**

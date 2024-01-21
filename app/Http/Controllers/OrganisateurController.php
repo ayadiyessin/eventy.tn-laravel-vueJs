@@ -26,7 +26,7 @@ class OrganisateurController extends Controller
             'usersID' => $request->input('usersID'),
             ]);
             $organisateur->save();
-            return response()->json($organisateur,201);
+            return response()->json($organisateur,200);
     }
 
     /**

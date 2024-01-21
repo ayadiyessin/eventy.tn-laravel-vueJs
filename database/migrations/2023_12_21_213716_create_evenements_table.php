@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('prix_Event', 8, 2);  // Colonne pour le prix (8 chiffres au total, 2 décimales)
             $table->date('date_Event');
             $table->integer('nbPlace_Event');
+            $table->string('photo_Event',500);
             $table->unsignedBigInteger('organisateursID');
             $table->foreign('organisateursID')
             ->references('id')

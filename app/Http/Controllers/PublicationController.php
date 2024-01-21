@@ -23,6 +23,7 @@ class PublicationController extends Controller
     {
         $publication = new Publication([
             'dersc_pub' => $request->input('dersc_pub'),
+            'photo_pub' => $request->input('photo_pub'),
             'restaurationID' => $request->input('restaurationID'),
             ]);
             $publication->save();
@@ -34,7 +35,7 @@ class PublicationController extends Controller
      */
     public function show($id)
     {
-        $publication = Publication::find($id);
+        $publication = Publication::with(['restauration'])->find($id);
         return response()->json($publication);
     }
 
@@ -88,6 +89,6 @@ class PublicationController extends Controller
 
         return response()->json($publication, 200);
     }
-    
+
 
 }
