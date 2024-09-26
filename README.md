@@ -1,66 +1,49 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Eventy.tn - README
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenue sur **Eventy.tn**, une plateforme web qui offre aux utilisateurs la possibilité de découvrir les meilleurs bons plans (Restaurants, Boutiques, etc.) tout en facilitant la visualisation des événements et l'achat de billets en ligne. La plateforme est divisée en trois parties principales, chacune dédiée à un type d'utilisateur : Restaurateurs, Organisateurs, et Participants.
 
-## About Laravel
+## Structure du Projet
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Le projet **Eventy.tn** est organisé en trois sections principales :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1. Partie Web dédiée aux Restaurations
+Cette partie permet aux restaurateurs de :
+- S'authentifier et gérer leur profil.
+- Publier des offres, des événements ou des promotions.
+- Consulter les événements organisés sur la plateforme.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. Partie Web dédiée aux Organisateurs
+Cette partie permet aux organisateurs d'événements de :
+- S'authentifier et gérer leur profil.
+- Créer, modifier et gérer des événements.
+- Consulter les publications sur les événements d'autres organisateurs ou des restaurateurs.
 
-## Learning Laravel
+### 3. Partie Web dédiée aux Participants
+Cette partie permet aux participants de :
+- S'authentifier et gérer leur profil.
+- Acheter des billets pour les événements avec un système de paiement en ligne.
+- Consulter les événements et les publications.
+- Ajouter des commentaires et des avis sur les événements et les publications.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Technologies Utilisées
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Le développement du projet **Eventy.tn** est basé sur une architecture moderne et utilise les technologies suivantes :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Backend
+- **Laravel** : Le framework PHP Laravel est utilisé pour le développement des services web côté serveur. Il gère les opérations de l'API RESTful, l'authentification, la gestion des utilisateurs, la gestion des événements, et l'achat de billets.
+- **MySQL** : La base de données relationnelle MySQL est utilisée pour stocker les informations relatives aux utilisateurs, aux événements, aux publications, et aux transactions.
 
-## Laravel Sponsors
+### Frontend
+- **VueJS** : Framework JavaScript utilisé pour le développement de l'interface utilisateur et pour consommer les API fournies par le backend Laravel.
+- **Axios** : Librairie utilisée pour effectuer des appels HTTP vers l'API backend depuis le frontend.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Autres outils et techniques
+- **Cloudinary** : Utilisé pour la gestion des images sur la plateforme. Cloudinary permet de télécharger, stocker, transformer, et livrer des images optimisées via un CDN. Toutes les images des événements, publications et profils utilisateurs sont gérées via ce service.
+- **JWT (JSON Web Tokens)** : Utilisé pour gérer l'authentification sécurisée des utilisateurs sur toute la plateforme.
+- **Stripe** : Intégration des services de paiement pour l'achat des billets en ligne.
 
-### Premium Partners
+## Démo
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Pour voir une démo vidéo de l'application en action, cliquez sur le lien ci-dessous :
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+https://drive.google.com/file/d/1-HWWiplhTEiaj4rq9h2nGuSxc7lnnS-3/view?usp=sharing
