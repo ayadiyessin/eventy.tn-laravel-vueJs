@@ -30,7 +30,7 @@ Cette partie permet aux participants de :
 Le développement du projet **Eventy.tn** est basé sur une architecture moderne et utilise les technologies suivantes :
 
 ### Backend
-- **Laravel** : Le framework PHP Laravel est utilisé pour le développement des services web côté serveur. Il gère les opérations de l'API RESTful, l'authentification, la gestion des utilisateurs, la gestion des événements, et l'achat de billets.
+- **Laravel 10** : Le framework PHP Laravel est utilisé pour le développement des services web côté serveur. Il gère les opérations de l'API RESTful, l'authentification, la gestion des utilisateurs, la gestion des événements, et l'achat de billets.
 - **MySQL** : La base de données relationnelle MySQL est utilisée pour stocker les informations relatives aux utilisateurs, aux événements, aux publications, et aux transactions.
 
 ### Frontend
